@@ -25,6 +25,10 @@ final class CharacterDetailViewController: UIViewController {
     private let statusResponseLabel = UILabel()
     private let speciesLabel = UILabel()
     private let speciesResponseLabel = UILabel()
+    private let locationLabel = UILabel()
+    private let locationResponseLabel = UILabel()
+    private let originLabel = UILabel()
+    private let originResponseLabel = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,6 +91,8 @@ private extension CharacterDetailViewController {
             genderLabel,
             statusLabel,
             speciesLabel,
+            locationLabel,
+            originLabel
         ].forEach {
             labelsStackView.addArrangedSubview($0)
         }
@@ -99,7 +105,9 @@ private extension CharacterDetailViewController {
         [
             genderResponseLabel,
             statusResponseLabel,
-            speciesResponseLabel
+            speciesResponseLabel,
+            locationResponseLabel,
+            originResponseLabel
         ].forEach {
             labelsResponseStackView.addArrangedSubview($0)
         }
@@ -115,7 +123,11 @@ private extension CharacterDetailViewController {
             statusLabel,
             statusResponseLabel,
             speciesLabel,
-            speciesResponseLabel
+            speciesResponseLabel,
+            locationLabel,
+            locationResponseLabel,
+            originLabel,
+            originResponseLabel
         ].forEach {
             $0.font = UIFont(name: "Arial-BoldMT", size: 18)
             $0.textColor = UIColor(named: "customYellow")
@@ -126,6 +138,10 @@ private extension CharacterDetailViewController {
         setupStatusResponsibleLabel()
         setupSpeciesLabel()
         setupSpeciesResponsibleLabel()
+        setupLocationLabel()
+        setupLocationResponseLabel()
+        setupOriginLabel()
+        setupOriginResponseLabel()
     }
     
     func setupGenderLabel() {
@@ -134,6 +150,7 @@ private extension CharacterDetailViewController {
     
     func setupGenderResponseLabel() {
         genderResponseLabel.text = character.gender ?? "unknown"
+        genderResponseLabel.textAlignment = .right
     }
     
     func setupStatusLabel() {
@@ -142,6 +159,7 @@ private extension CharacterDetailViewController {
     
     func setupStatusResponsibleLabel() {
         statusResponseLabel.text = character.status ?? "unknown"
+        statusResponseLabel.textAlignment = .right
     }
     
     func setupSpeciesLabel() {
@@ -150,6 +168,27 @@ private extension CharacterDetailViewController {
     
     func setupSpeciesResponsibleLabel() {
         speciesResponseLabel.text = character.species ?? "unknown"
+        speciesResponseLabel.textAlignment = .right
+    }
+    
+    func setupLocationLabel() {
+        locationLabel.text = "location:"
+    }
+    
+    func setupLocationResponseLabel() {
+        locationResponseLabel.text = character.location?.name ?? "unknown"
+        locationResponseLabel.textAlignment = .right
+        locationResponseLabel.numberOfLines = 3
+    }
+    
+    func setupOriginLabel() {
+        originLabel.text = "origin:"
+    }
+    
+    func setupOriginResponseLabel() {
+        originResponseLabel.text = character.origin?.name ?? "unknown"
+        originResponseLabel.textAlignment = .right
+        originResponseLabel.numberOfLines = 3
     }
     
     func setupAvatarImageView() {
