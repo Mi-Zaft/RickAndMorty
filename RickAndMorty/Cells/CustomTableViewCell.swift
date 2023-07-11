@@ -43,7 +43,8 @@ private extension CustomTableViewCell {
     
     func setupConstraints() {
         nameLabel.snp.makeConstraints { make in
-            make.centerX.equalTo(contentView)
+            make.left.equalTo(contentView).offset(16)
+            make.right.equalTo(contentView).offset(-16)
             make.centerY.equalTo(contentView)
         }
     }
@@ -55,5 +56,7 @@ private extension CustomTableViewCell {
             size: 21
         )
         nameLabel.highlightedTextColor = .white
+        nameLabel.numberOfLines = 2
+        nameLabel.textAlignment = .center
     }
 }

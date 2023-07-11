@@ -21,6 +21,7 @@
 		94668D282A59B27C00093C32 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94668D272A59B27C00093C32 /* APIError.swift */; };
 		94668D2A2A59B92400093C32 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94668D292A59B92400093C32 /* CustomTableViewCell.swift */; };
 		94668D2C2A59C8CA00093C32 /* CharacterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94668D2B2A59C8CA00093C32 /* CharacterDetailViewController.swift */; };
+		94E735292A5E04B600DD58AA /* CharacterSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E735282A5E04B600DD58AA /* CharacterSearchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		94668D272A59B27C00093C32 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		94668D292A59B92400093C32 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		94668D2B2A59C8CA00093C32 /* CharacterDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewController.swift; sourceTree = "<group>"; };
+		94E735282A5E04B600DD58AA /* CharacterSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSearchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 				941D2A7E2A4CB463001C374E /* MainMenuViewController.swift */,
 				94668D222A59A9E600093C32 /* CharactersViewController.swift */,
 				94668D2B2A59C8CA00093C32 /* CharacterDetailViewController.swift */,
+				94E735282A5E04B600DD58AA /* CharacterSearchViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 				94668D262A59B09700093C32 /* NetworkManager.swift in Sources */,
 				94668D232A59A9E600093C32 /* CharactersViewController.swift in Sources */,
 				941D2A7F2A4CB463001C374E /* MainMenuViewController.swift in Sources */,
+				94E735292A5E04B600DD58AA /* CharacterSearchViewController.swift in Sources */,
 				94668D282A59B27C00093C32 /* APIError.swift in Sources */,
 				941D2A9A2A4CBE5C001C374E /* DataModel.swift in Sources */,
 				941D2A7B2A4CB463001C374E /* AppDelegate.swift in Sources */,
