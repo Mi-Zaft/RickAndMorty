@@ -34,7 +34,7 @@ final class CustomTableViewCell: UITableViewCell {
 // MARK: - Private Methods
 private extension CustomTableViewCell {
     func setupUI() {
-        backgroundColor = UIColor(named: "backgroundColor")
+        backgroundColor = UIColor(named: ConstantsColors.backgroundColor.rawValue)
     }
     
     func setupSubviews() {
@@ -45,14 +45,15 @@ private extension CustomTableViewCell {
         nameLabel.snp.makeConstraints { make in
             make.left.equalTo(contentView).offset(16)
             make.right.equalTo(contentView).offset(-16)
-            make.centerY.equalTo(contentView)
+            make.top.equalTo(contentView).offset(10)
+            make.bottom.equalTo(contentView).offset(-10)
         }
     }
     
     func setupNameLabel() {
-        nameLabel.textColor = UIColor(named: "customYellow")
+        nameLabel.textColor = UIColor(named: ConstantsColors.customYellow.rawValue)
         nameLabel.font = UIFont(
-            name: "Arial-BoldMT",
+            name: ConstantsFonts.ArialBoldMT.rawValue,
             size: 21
         )
         nameLabel.highlightedTextColor = .white

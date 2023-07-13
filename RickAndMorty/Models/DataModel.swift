@@ -7,9 +7,14 @@
 
 import Foundation
 
-struct DataModel: Decodable {
+struct CharacterData: Decodable {
     let info: Info?
     let results: [Character]?
+}
+
+struct LocationData: Decodable {
+    let info: Info?
+    let results: [Location]?
 }
 
 struct Info: Decodable {

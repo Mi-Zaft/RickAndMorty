@@ -14,9 +14,6 @@ final class MainMenuViewController: UIViewController {
     private let buttonsStackView = UIStackView()
     private let charactersButton = UIButton(type: .system)
     private let locationsButton = UIButton(type: .system)
-    private let episodesButton = UIButton(type: .system)
-    
-    var allCharactersUrl = "https://rickandmortyapi.com/api/character"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,16 +24,19 @@ final class MainMenuViewController: UIViewController {
         setupButtonsStackView()
         setupCharactersButton()
         setupLocationsButton()
-        setupEpisodesButton()
     }
 }
 
 // MARK: - Private Methods
 private extension MainMenuViewController {
     func setupUI() {
-        view.backgroundColor = UIColor(named: "backgroundColor")
+        view.backgroundColor = UIColor(
+            named: ConstantsColors.backgroundColor.rawValue
+        )
         navigationItem.backButtonTitle = "Main menu"
-        navigationController?.navigationBar.tintColor = UIColor(named: "buttonColor")
+        navigationController?.navigationBar.tintColor = UIColor(
+            named: ConstantsColors.buttonColor.rawValue
+        )
     }
     
     func setupSubviews() {
@@ -56,8 +56,7 @@ private extension MainMenuViewController {
     func setupButtonsStackView() {
         [
             charactersButton,
-            locationsButton,
-            episodesButton
+            locationsButton
         ].forEach {
             buttonsStackView.addArrangedSubview($0)
         }
@@ -68,9 +67,9 @@ private extension MainMenuViewController {
     
     func setupCharactersButton() {
         charactersButton.setTitle("CHARACTERS", for: .normal)
-        charactersButton.tintColor = UIColor(named: "buttonColor")
+        charactersButton.tintColor = UIColor(named: ConstantsColors.buttonColor.rawValue)
         charactersButton.titleLabel?.font = UIFont(
-            name: "AmericanTypewriter-Bold",
+            name: ConstantsFonts.AmericanTypewriterBold.rawValue,
             size: 24
         )
         charactersButton.addTarget(self, action: #selector(charactersButtonTapped), for: .touchUpInside)
@@ -78,22 +77,12 @@ private extension MainMenuViewController {
     
     func setupLocationsButton() {
         locationsButton.setTitle("LOCATIONS", for: .normal)
-        locationsButton.tintColor = UIColor(named: "buttonColor")
+        locationsButton.tintColor = UIColor(named: ConstantsColors.buttonColor.rawValue)
         locationsButton.titleLabel?.font = UIFont(
-            name: "AmericanTypewriter-Bold",
+            name: ConstantsFonts.AmericanTypewriterBold.rawValue,
             size: 24
         )
         locationsButton.addTarget(self, action: #selector(locationsButtonTapped), for: .touchUpInside)
-    }
-    
-    func setupEpisodesButton() {
-        episodesButton.setTitle("EPISODES", for: .normal)
-        episodesButton.tintColor = UIColor(named: "buttonColor")
-        episodesButton.titleLabel?.font = UIFont(
-            name: "AmericanTypewriter-Bold",
-            size: 24
-        )
-        episodesButton.addTarget(self, action: #selector(episodesButtonTapped), for: .touchUpInside)
     }
     
     func showAlert(with title: String, message: String) {
@@ -120,16 +109,13 @@ private extension MainMenuViewController {
             make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).offset(-16)
         }
         
-        charactersButton.snp.makeConstraints { make in
-            make.height.equalTo(60)
-        }
-        
-        locationsButton.snp.makeConstraints { make in
-            make.height.equalTo(60)
-        }
-        
-        episodesButton.snp.makeConstraints { make in
-            make.height.equalTo(60)
+        [
+            charactersButton,
+            locationsButton
+        ].forEach {
+            $0.snp.makeConstraints { make in
+                make.height.equalTo(60)
+            }
         }
     }
     
@@ -140,11 +126,6 @@ private extension MainMenuViewController {
     
     @objc
     func locationsButtonTapped() {
-        showAlert(with: "Oops", message: "Locations coming soon")
-    }
-    
-    @objc
-    func episodesButtonTapped() {
-        showAlert(with: "Oops", message: "Episodes coming soon")
+        navigationController?.pushViewController(LocationsViewController(), animated: true)
     }
 }

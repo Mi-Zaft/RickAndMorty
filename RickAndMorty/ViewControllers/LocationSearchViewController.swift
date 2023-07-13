@@ -1,16 +1,16 @@
 //
-//  CharacterSearchViewController.swift
+//  LocationSearchViewController.swift
 //  RickAndMorty
 //
-//  Created by Максим Евграфов on 12.07.2023.
+//  Created by Максим Евграфов on 13.07.2023.
 //
 
 import UIKit
 import SnapKit
 
-final class CharacterSearchViewController: UIViewController {
+final class LocationSearchViewController: UIViewController {
     
-    var characters: [Character] = []
+    var locations: [Location] = []
     
     private let searchTextField = UITextField()
     private let tableView = UITableView()
@@ -27,10 +27,10 @@ final class CharacterSearchViewController: UIViewController {
 
 
 // MARK: - Private Methods
-private extension CharacterSearchViewController {
+private extension LocationSearchViewController {
     func setupUI() {
         view.backgroundColor = UIColor(named: ConstantsColors.backgroundColor.rawValue)
-        title = "Search a character"
+        title = "Search a location"
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -67,7 +67,7 @@ private extension CharacterSearchViewController {
             size: 21
         )
         searchTextField.returnKeyType = .search
-        searchTextField.placeholder = "Name of character"
+        searchTextField.placeholder = "Name of location"
         searchTextField.autocapitalizationType = .none
         searchTextField.autocorrectionType = .no
         searchTextField.smartDashesType = .no
@@ -91,9 +91,9 @@ private extension CharacterSearchViewController {
 }
 
 // MARK: - Table View Data Source
-extension CharacterSearchViewController: UITableViewDataSource {
+extension LocationSearchViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        characters.count
+        locations.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -103,35 +103,35 @@ extension CharacterSearchViewController: UITableViewDataSource {
         )
         guard let cell = cell as? CustomTableViewCell else { return cell }
         
-        cell.configure(with: characters[indexPath.row].name ?? "Undefined")
+        cell.configure(with: locations[indexPath.row].name ?? "Undefined")
         
         return cell
     }
 }
 
 // MARK: - Table View Delegate
-extension CharacterSearchViewController: UITableViewDelegate {
+extension LocationSearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let controller = CharacterDetailViewController()
-        controller.character = characters[indexPath.row]
+        let controller = LocationDetailViewController()
+        controller.location = locations[indexPath.row]
         navigationController?.pushViewController(controller, animated: true)
     }
 }
 
 // MARK: - Text Field Delegate
-extension CharacterSearchViewController: UITextFieldDelegate {
+extension LocationSearchViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         
-        let url = "\(APIAdresses.characters.rawValue)/?name=\(searchTextField.text ?? "")"
+        let url = "\(APIAdresses.locations.rawValue)/?name=\(searchTextField.text ?? "")"
         guard let url = URL(string: url) else { return true }
         
-        NetworkManager.shared.fetchData(url: url, decodeType: CharacterData.self) { [weak self] result in
+        NetworkManager.shared.fetchData(url: url, decodeType: LocationData.self) { [weak self] result in
             switch result {
             case .success(let data):
-                self?.characters = data.results ?? []
+                self?.locations = data.results ?? []
                 self?.tableView.reloadData()
             case .failure(let error):
                 print(error)

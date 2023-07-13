@@ -21,6 +21,12 @@
 		94668D282A59B27C00093C32 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94668D272A59B27C00093C32 /* APIError.swift */; };
 		94668D2A2A59B92400093C32 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94668D292A59B92400093C32 /* CustomTableViewCell.swift */; };
 		94668D2C2A59C8CA00093C32 /* CharacterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94668D2B2A59C8CA00093C32 /* CharacterDetailViewController.swift */; };
+		948A73482A5F2C67007F9802 /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948A73472A5F2C67007F9802 /* LocationsViewController.swift */; };
+		948E70A42A608B370061FFDA /* APIAdresses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948E70A32A608B370061FFDA /* APIAdresses.swift */; };
+		948E70A62A608C700061FFDA /* ConstantsColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948E70A52A608C700061FFDA /* ConstantsColors.swift */; };
+		948E70A82A6099F30061FFDA /* LocationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948E70A72A6099F30061FFDA /* LocationDetailViewController.swift */; };
+		948E70AA2A609D220061FFDA /* LocationSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948E70A92A609D220061FFDA /* LocationSearchViewController.swift */; };
+		948E70AC2A60A0C30061FFDA /* ConstantsFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948E70AB2A60A0C30061FFDA /* ConstantsFonts.swift */; };
 		94E735292A5E04B600DD58AA /* CharacterSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E735282A5E04B600DD58AA /* CharacterSearchViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +46,12 @@
 		94668D272A59B27C00093C32 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		94668D292A59B92400093C32 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		94668D2B2A59C8CA00093C32 /* CharacterDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewController.swift; sourceTree = "<group>"; };
+		948A73472A5F2C67007F9802 /* LocationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
+		948E70A32A608B370061FFDA /* APIAdresses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIAdresses.swift; sourceTree = "<group>"; };
+		948E70A52A608C700061FFDA /* ConstantsColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantsColors.swift; sourceTree = "<group>"; };
+		948E70A72A6099F30061FFDA /* LocationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailViewController.swift; sourceTree = "<group>"; };
+		948E70A92A609D220061FFDA /* LocationSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchViewController.swift; sourceTree = "<group>"; };
+		948E70AB2A60A0C30061FFDA /* ConstantsFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantsFonts.swift; sourceTree = "<group>"; };
 		94E735282A5E04B600DD58AA /* CharacterSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSearchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -74,6 +86,7 @@
 		941D2A792A4CB463001C374E /* RickAndMorty */ = {
 			isa = PBXGroup;
 			children = (
+				948E70A22A608B1D0061FFDA /* Helpers */,
 				94668D242A59B08600093C32 /* NetworkLayer */,
 				941D2A8E2A4CB48F001C374E /* App */,
 				94668D1A2A58CB3B00093C32 /* Cells */,
@@ -102,6 +115,9 @@
 				94668D222A59A9E600093C32 /* CharactersViewController.swift */,
 				94668D2B2A59C8CA00093C32 /* CharacterDetailViewController.swift */,
 				94E735282A5E04B600DD58AA /* CharacterSearchViewController.swift */,
+				948A73472A5F2C67007F9802 /* LocationsViewController.swift */,
+				948E70A72A6099F30061FFDA /* LocationDetailViewController.swift */,
+				948E70A92A609D220061FFDA /* LocationSearchViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -147,6 +163,16 @@
 				94668D272A59B27C00093C32 /* APIError.swift */,
 			);
 			path = NetworkLayer;
+			sourceTree = "<group>";
+		};
+		948E70A22A608B1D0061FFDA /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				948E70A32A608B370061FFDA /* APIAdresses.swift */,
+				948E70A52A608C700061FFDA /* ConstantsColors.swift */,
+				948E70AB2A60A0C30061FFDA /* ConstantsFonts.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,15 +253,21 @@
 			files = (
 				94668D2C2A59C8CA00093C32 /* CharacterDetailViewController.swift in Sources */,
 				94668D262A59B09700093C32 /* NetworkManager.swift in Sources */,
+				948E70A62A608C700061FFDA /* ConstantsColors.swift in Sources */,
 				94668D232A59A9E600093C32 /* CharactersViewController.swift in Sources */,
+				948E70AC2A60A0C30061FFDA /* ConstantsFonts.swift in Sources */,
 				941D2A7F2A4CB463001C374E /* MainMenuViewController.swift in Sources */,
 				94E735292A5E04B600DD58AA /* CharacterSearchViewController.swift in Sources */,
 				94668D282A59B27C00093C32 /* APIError.swift in Sources */,
 				941D2A9A2A4CBE5C001C374E /* DataModel.swift in Sources */,
+				948E70A82A6099F30061FFDA /* LocationDetailViewController.swift in Sources */,
 				941D2A7B2A4CB463001C374E /* AppDelegate.swift in Sources */,
+				948A73482A5F2C67007F9802 /* LocationsViewController.swift in Sources */,
 				94668D2A2A59B92400093C32 /* CustomTableViewCell.swift in Sources */,
 				941D2A972A4CB649001C374E /* Location.swift in Sources */,
 				941D2A7D2A4CB463001C374E /* SceneDelegate.swift in Sources */,
+				948E70AA2A609D220061FFDA /* LocationSearchViewController.swift in Sources */,
+				948E70A42A608B370061FFDA /* APIAdresses.swift in Sources */,
 				941D2A932A4CB53A001C374E /* Character.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
