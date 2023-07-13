@@ -47,7 +47,7 @@ final class CharacterDetailViewController: UIViewController {
 private extension CharacterDetailViewController {
     func setupUI() {
         title = character.name
-        view.backgroundColor = UIColor(named: "backgroundColor")
+        view.backgroundColor = UIColor(named: ConstantsColors.backgroundColor.rawValue)
     }
     
     func setupSubviews() {
@@ -129,8 +129,8 @@ private extension CharacterDetailViewController {
             originLabel,
             originResponseLabel
         ].forEach {
-            $0.font = UIFont(name: "Arial-BoldMT", size: 18)
-            $0.textColor = UIColor(named: "customYellow")
+            $0.font = UIFont(name: ConstantsFonts.ArialBoldMT.rawValue, size: 18)
+            $0.textColor = UIColor(named: ConstantsColors.customYellow.rawValue)
         }
         setupGenderLabel()
         setupGenderResponseLabel()
@@ -188,7 +188,6 @@ private extension CharacterDetailViewController {
     func setupOriginResponseLabel() {
         originResponseLabel.text = character.origin?.name ?? "unknown"
         originResponseLabel.textAlignment = .right
-        originResponseLabel.numberOfLines = 3
     }
     
     func setupAvatarImageView() {
@@ -205,10 +204,10 @@ private extension CharacterDetailViewController {
     func setupNameLabel() {
         nameResponseLabel.text = character.name
         nameResponseLabel.font = UIFont(
-            name: "AmericanTypewriter-Bold",
+            name: ConstantsFonts.AmericanTypewriterBold.rawValue,
             size: 21
         )
-        nameResponseLabel.textColor = UIColor(named: "buttonColor")
+        nameResponseLabel.textColor = UIColor(named: ConstantsColors.buttonColor.rawValue)
         nameResponseLabel.textAlignment = .center
     }
 }

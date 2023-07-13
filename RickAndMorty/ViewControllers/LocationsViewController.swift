@@ -1,31 +1,33 @@
 //
-//  CharactersViewController.swift
+//  LocationsViewController.swift
 //  RickAndMorty
 //
-//  Created by Максим Евграфов on 08.07.2023.
+//  Created by Максим Евграфов on 12.07.2023.
 //
 
 import UIKit
+import SnapKit
 
-final class CharactersViewController: UITableViewController {
+final class LocationsViewController: UITableViewController {
     
-    private var characters: [Character] = []
+    private var locations: [Location] = []
     private var responseInfo: Info?
     
     private var currentPage = 1
-    private var hasMoreData = false
+    private var hasMoreData = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
         setupUI()
-        fetchCharacters(from: APIAdresses.characters.rawValue)
+        fetchLocations(from: APIAdresses.locations.rawValue)
     }
 }
 
-private extension CharactersViewController {
-    private func setupNavigationBar() {
-        title = "Characters"
+// MARK: - Private Methods
+private extension LocationsViewController {
+    func setupNavigationBar() {
+        title = "Locations"
         navigationController?.navigationBar.prefersLargeTitles = false
         
         let navBarAppearance = UINavigationBarAppearance()
@@ -39,20 +41,16 @@ private extension CharactersViewController {
         navigationController?.navigationBar.standardAppearance = navBarAppearance
         navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(
-            barButtonSystemItem: .search,
-            target: self,
-            action: #selector(searchBarButtonTapped)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchBarButtonTapped)
         )
         
         navigationController?.navigationBar.tintColor = UIColor(named: ConstantsColors.buttonColor.rawValue)
+        
     }
     
     func setupUI() {
         view.backgroundColor = UIColor(named: ConstantsColors.backgroundColor.rawValue)
-        tableView.register(
-            CustomTableViewCell.self,
-            forCellReuseIdentifier: CustomTableViewCell.identifier
+        tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: CustomTableViewCell.identifier
         )
         tableView.dataSource = self
         tableView.delegate = self
@@ -60,19 +58,15 @@ private extension CharactersViewController {
     
     @objc
     func searchBarButtonTapped() {
-        navigationController?.pushViewController(
-            CharacterSearchViewController(),
-            animated: true
-        )
+        navigationController?.pushViewController(LocationSearchViewController(), animated: true)
     }
     
-    func fetchCharacters(from url: String) {
-        let allCharactersURL = url
-        guard let url = URL(string: allCharactersURL) else { return }
-        NetworkManager.shared.fetchData(url: url, decodeType: CharacterData.self) { [weak self] result in
+    func fetchLocations(from url: String) {
+        guard let url = URL(string: APIAdresses.locations.rawValue) else { return }
+        NetworkManager.shared.fetchData(url: url, decodeType: LocationData.self) { [weak self] result in
             switch result {
             case .success(let data):
-                self?.characters += data.results ?? []
+                self?.locations += data.results ?? []
                 self?.responseInfo = data.info ?? nil
                 self?.tableView.reloadData()
                 
@@ -86,11 +80,10 @@ private extension CharactersViewController {
     }
 }
 
-
 // MARK: - Table View Data Source
-extension CharactersViewController {
+extension LocationsViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        characters.count
+        locations.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -101,7 +94,7 @@ extension CharactersViewController {
         )
         guard let cell = cell as? CustomTableViewCell else { return cell }
         
-        cell.configure(with: characters[indexPath.row].name ?? "Undefined")
+        cell.configure(with: locations[indexPath.row].name ?? "Undefined")
         
         return cell
     }
@@ -109,15 +102,15 @@ extension CharactersViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let controller = CharacterDetailViewController()
-        controller.character = characters[indexPath.row]
+        let controller = LocationDetailViewController()
+        controller.location = locations[indexPath.row]
         navigationController?.pushViewController(controller, animated: true)
     }
 }
 
 
 // MARK: - Scroll View Delegate
-extension CharactersViewController {
+extension LocationsViewController {
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetY = scrollView.contentOffset.y
         let contentHeight = scrollView.contentSize.height
@@ -129,7 +122,7 @@ extension CharactersViewController {
             guard let responseInfo = responseInfo,
                     let urlForParse = responseInfo.next else { return }
             
-            fetchCharacters(from: urlForParse)
+            fetchLocations(from: urlForParse)
         }
     }
 }
