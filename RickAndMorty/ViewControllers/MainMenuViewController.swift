@@ -12,11 +12,29 @@ final class MainMenuViewController: UIViewController {
     
     private let imageView = UIImageView()
     private let buttonsStackView = UIStackView()
-    private let charactersButton = UIButton(type: .system)
-    private let locationsButton = UIButton(type: .system)
+    private let charactersButton = CustomButton(title: "CHARACTERS")
+    private let locationsButton = CustomButton(title: "LOCATIONS")
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView()
+    }
+    
+    // MARK: - Actions
+    @objc
+    private func charactersButtonTapped() {
+        navigationController?.pushViewController(CharactersViewController(), animated: true)
+    }
+    
+    @objc
+    private func locationsButtonTapped() {
+        navigationController?.pushViewController(LocationsViewController(), animated: true)
+    }
+}
+
+// MARK: - Setting View
+private extension MainMenuViewController {
+    func setupView() {
         setupUI()
         setupSubviews()
         setupConstraints()
@@ -66,23 +84,19 @@ private extension MainMenuViewController {
     }
     
     func setupCharactersButton() {
-        charactersButton.setTitle("CHARACTERS", for: .normal)
-        charactersButton.tintColor = UIColor(named: ConstantsColors.buttonColor.rawValue)
-        charactersButton.titleLabel?.font = UIFont(
-            name: ConstantsFonts.AmericanTypewriterBold.rawValue,
-            size: 24
+        charactersButton.addTarget(
+            self,
+            action: #selector(charactersButtonTapped),
+            for: .touchUpInside
         )
-        charactersButton.addTarget(self, action: #selector(charactersButtonTapped), for: .touchUpInside)
     }
     
     func setupLocationsButton() {
-        locationsButton.setTitle("LOCATIONS", for: .normal)
-        locationsButton.tintColor = UIColor(named: ConstantsColors.buttonColor.rawValue)
-        locationsButton.titleLabel?.font = UIFont(
-            name: ConstantsFonts.AmericanTypewriterBold.rawValue,
-            size: 24
+        locationsButton.addTarget(
+            self,
+            action: #selector(locationsButtonTapped),
+            for: .touchUpInside
         )
-        locationsButton.addTarget(self, action: #selector(locationsButtonTapped), for: .touchUpInside)
     }
     
     func showAlert(with title: String, message: String) {
@@ -94,7 +108,10 @@ private extension MainMenuViewController {
         
         present(alert, animated: true)
     }
-    
+}
+
+//MARK: - Layout
+private extension MainMenuViewController {
     func setupConstraints() {
         imageView.snp.makeConstraints { make in
             make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
@@ -117,15 +134,5 @@ private extension MainMenuViewController {
                 make.height.equalTo(60)
             }
         }
-    }
-    
-    @objc
-    func charactersButtonTapped() {
-        navigationController?.pushViewController(CharactersViewController(), animated: true)
-    }
-    
-    @objc
-    func locationsButtonTapped() {
-        navigationController?.pushViewController(LocationsViewController(), animated: true)
     }
 }

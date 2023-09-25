@@ -32,15 +32,7 @@ final class CharacterDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
-        setupSubviews()
-        setupConstraints()
-        setupAvatarImageView()
-        setupNameLabel()
-        setupGeneralStackView()
-        setupLabelsStackView()
-        setupLabelsResponseStackView()
-        setupLabels()
+        setupView()
     }
 }
 
@@ -57,27 +49,6 @@ private extension CharacterDetailViewController {
             generalStackView
         ].forEach {
             view.addSubview($0)
-        }
-    }
-    
-    func setupConstraints() {
-        avatarImageView.snp.makeConstraints { make in
-            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(20)
-            make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).offset(75)
-            make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).offset(-75)
-            make.height.equalTo(avatarImageView.snp.width)
-        }
-        
-        nameResponseLabel.snp.makeConstraints { make in
-            make.top.equalTo(avatarImageView.snp.bottom).offset(30)
-            make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).offset(16)
-            make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).offset(-16)
-        }
-        
-        generalStackView.snp.makeConstraints { make in
-            make.top.equalTo(nameResponseLabel.snp.bottom).offset(40)
-            make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).offset(16)
-            make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).offset(-16)
         }
     }
     
@@ -129,7 +100,7 @@ private extension CharacterDetailViewController {
             originLabel,
             originResponseLabel
         ].forEach {
-            $0.font = UIFont(name: ConstantsFonts.ArialBoldMT.rawValue, size: 18)
+            $0.font = UIFont(name: ConstantsFonts.arialBoldMT.rawValue, size: 18)
             $0.textColor = UIColor(named: ConstantsColors.customYellow.rawValue)
         }
         setupGenderLabel()
@@ -204,10 +175,49 @@ private extension CharacterDetailViewController {
     func setupNameLabel() {
         nameResponseLabel.text = character.name
         nameResponseLabel.font = UIFont(
-            name: ConstantsFonts.AmericanTypewriterBold.rawValue,
+            name: ConstantsFonts.americanTypewriterBold.rawValue,
             size: 21
         )
         nameResponseLabel.textColor = UIColor(named: ConstantsColors.buttonColor.rawValue)
         nameResponseLabel.textAlignment = .center
+    }
+}
+
+// MARK: - Layout
+private extension CharacterDetailViewController {
+    func setupConstraints() {
+        avatarImageView.snp.makeConstraints { make in
+            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(20)
+            make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).offset(75)
+            make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).offset(-75)
+            make.height.equalTo(avatarImageView.snp.width)
+        }
+        
+        nameResponseLabel.snp.makeConstraints { make in
+            make.top.equalTo(avatarImageView.snp.bottom).offset(30)
+            make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).offset(16)
+            make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).offset(-16)
+        }
+        
+        generalStackView.snp.makeConstraints { make in
+            make.top.equalTo(nameResponseLabel.snp.bottom).offset(40)
+            make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).offset(16)
+            make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).offset(-16)
+        }
+    }
+}
+
+// MARK: Setting View
+private extension CharacterDetailViewController {
+    func setupView() {
+        setupUI()
+        setupSubviews()
+        setupConstraints()
+        setupAvatarImageView()
+        setupNameLabel()
+        setupGeneralStackView()
+        setupLabelsStackView()
+        setupLabelsResponseStackView()
+        setupLabels()
     }
 }
