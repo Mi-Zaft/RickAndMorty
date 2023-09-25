@@ -4,12 +4,11 @@
 //
 //  Created by Максим Евграфов on 08.07.2023.
 //
+import Foundation
 
-enum erros {
+enum Erros {
     case invalidURL
 }
-
-import Foundation
 
 struct APIError: Error, Decodable {
     var message: String?

@@ -8,6 +8,6 @@
 import Foundation
 
 enum ConstantsFonts: String {
-    case ArialBoldMT = "Arial-BoldMT"
-    case AmericanTypewriterBold = "AmericanTypewriter-Bold"
+    case arialBoldMT = "Arial-BoldMT"
+    case americanTypewriterBold = "AmericanTypewriter-Bold"
 }

@@ -68,8 +68,7 @@ private extension CharactersViewController {
     
     func fetchCharacters(from url: String) {
         let allCharactersURL = url
-        guard let url = URL(string: allCharactersURL) else { return }
-        NetworkManager.shared.fetchData(url: url, decodeType: CharacterData.self) { [weak self] result in
+        NetworkManager.shared.fetchCharacters(url: allCharactersURL) { [weak self] result in
             switch result {
             case .success(let data):
                 self?.characters += data.results ?? []

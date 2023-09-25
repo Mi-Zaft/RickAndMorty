@@ -53,7 +53,7 @@ private extension CustomTableViewCell {
     func setupNameLabel() {
         nameLabel.textColor = UIColor(named: ConstantsColors.customYellow.rawValue)
         nameLabel.font = UIFont(
-            name: ConstantsFonts.ArialBoldMT.rawValue,
+            name: ConstantsFonts.arialBoldMT.rawValue,
             size: 21
         )
         nameLabel.highlightedTextColor = .white

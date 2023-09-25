@@ -17,11 +17,7 @@ final class CharacterSearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
-        setupSubviews()
-        setupConstraints()
-        setupSearchTextField()
-        setupTableView()
+        setupView()
     }
 }
 
@@ -47,23 +43,10 @@ private extension CharacterSearchViewController {
         view.addSubview(tableView)
     }
     
-    func setupConstraints() {
-        searchTextField.snp.makeConstraints { make in
-            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(22)
-            make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).offset(16)
-            make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).offset(-16)
-        }
-        
-        tableView.snp.makeConstraints { make in
-            make.top.equalTo(searchTextField.snp.bottom).offset(16)
-            make.horizontalEdges.bottom.equalToSuperview()
-        }
-    }
-    
     func setupSearchTextField() {
         searchTextField.backgroundColor = .gray
         searchTextField.font = UIFont(
-            name: ConstantsFonts.ArialBoldMT.rawValue,
+            name: ConstantsFonts.arialBoldMT.rawValue,
             size: 21
         )
         searchTextField.returnKeyType = .search
@@ -139,5 +122,32 @@ extension CharacterSearchViewController: UITextFieldDelegate {
         }
         
         return true
+    }
+}
+
+// MARK: - Layout
+private extension CharacterSearchViewController {
+    func setupConstraints() {
+        searchTextField.snp.makeConstraints { make in
+            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(22)
+            make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).offset(16)
+            make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).offset(-16)
+        }
+        
+        tableView.snp.makeConstraints { make in
+            make.top.equalTo(searchTextField.snp.bottom).offset(16)
+            make.horizontalEdges.bottom.equalToSuperview()
+        }
+    }
+}
+
+// MARK: Setting View
+private extension CharacterSearchViewController {
+    func setupView() {
+        setupUI()
+        setupSubviews()
+        setupConstraints()
+        setupSearchTextField()
+        setupTableView()
     }
 }

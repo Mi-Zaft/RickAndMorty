@@ -25,14 +25,7 @@ final class LocationDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
-        setupSubviews()
-        setupConstraints()
-        setupNameLabel()
-        setupGeneralStackView()
-        setupLabelsStackView()
-        setupLabelsResponseStackView()
-        setupLabels()
+        setupView()
     }
 }
 
@@ -49,21 +42,6 @@ private extension LocationDetailViewController {
             generalStackView
         ].forEach {
             view.addSubview($0)
-        }
-    }
-    
-    func setupConstraints() {
-        
-        nameResponseLabel.snp.makeConstraints { make in
-            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(30)
-            make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).offset(16)
-            make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).offset(-16)
-        }
-        
-        generalStackView.snp.makeConstraints { make in
-            make.top.equalTo(nameResponseLabel.snp.bottom).offset(40)
-            make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).offset(16)
-            make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).offset(-16)
         }
     }
     
@@ -103,7 +81,7 @@ private extension LocationDetailViewController {
             dimensionLabel,
             dimensionResponseLabel
         ].forEach {
-            $0.font = UIFont(name: ConstantsFonts.ArialBoldMT.rawValue, size: 18)
+            $0.font = UIFont(name: ConstantsFonts.arialBoldMT.rawValue, size: 18)
             $0.textColor = UIColor(named: ConstantsColors.customYellow.rawValue)
         }
         setupTypeLabel()
@@ -133,7 +111,7 @@ private extension LocationDetailViewController {
     func setupNameLabel() {
         nameResponseLabel.text = location.name
         nameResponseLabel.font = UIFont(
-            name: ConstantsFonts.AmericanTypewriterBold.rawValue,
+            name: ConstantsFonts.americanTypewriterBold.rawValue,
             size: 21
         )
         nameResponseLabel.textColor = UIColor(named: ConstantsColors.buttonColor.rawValue)
@@ -141,3 +119,34 @@ private extension LocationDetailViewController {
     }
 }
 
+// MARK: - Layout
+private extension LocationDetailViewController {
+    func setupConstraints() {
+        
+        nameResponseLabel.snp.makeConstraints { make in
+            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(30)
+            make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).offset(16)
+            make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).offset(-16)
+        }
+        
+        generalStackView.snp.makeConstraints { make in
+            make.top.equalTo(nameResponseLabel.snp.bottom).offset(40)
+            make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).offset(16)
+            make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).offset(-16)
+        }
+    }
+}
+
+// MARK: - Setting View
+private extension LocationDetailViewController {
+    func setupView() {
+        setupUI()
+        setupSubviews()
+        setupConstraints()
+        setupNameLabel()
+        setupGeneralStackView()
+        setupLabelsStackView()
+        setupLabelsResponseStackView()
+        setupLabels()
+    }
+}

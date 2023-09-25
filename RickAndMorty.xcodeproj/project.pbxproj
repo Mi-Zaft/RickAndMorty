@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9408E0BC2A6F0E5B00797AA0 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 9408E0BB2A6F0E5B00797AA0 /* Alamofire */; };
+		9408E0BF2A6F151C00797AA0 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9408E0BE2A6F151C00797AA0 /* CustomButton.swift */; };
 		941D2A7B2A4CB463001C374E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941D2A7A2A4CB463001C374E /* AppDelegate.swift */; };
 		941D2A7D2A4CB463001C374E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941D2A7C2A4CB463001C374E /* SceneDelegate.swift */; };
 		941D2A7F2A4CB463001C374E /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941D2A7E2A4CB463001C374E /* MainMenuViewController.swift */; };
 		941D2A842A4CB465001C374E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 941D2A832A4CB465001C374E /* Assets.xcassets */; };
 		941D2A872A4CB465001C374E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 941D2A852A4CB465001C374E /* LaunchScreen.storyboard */; };
 		941D2A932A4CB53A001C374E /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941D2A922A4CB53A001C374E /* Character.swift */; };
-		941D2A972A4CB649001C374E /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941D2A962A4CB649001C374E /* Location.swift */; };
-		941D2A9A2A4CBE5C001C374E /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941D2A992A4CBE5C001C374E /* DataModel.swift */; };
 		94668D212A598EEC00093C32 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 94668D202A598EEC00093C32 /* SnapKit */; };
 		94668D232A59A9E600093C32 /* CharactersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94668D222A59A9E600093C32 /* CharactersViewController.swift */; };
 		94668D262A59B09700093C32 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94668D252A59B09700093C32 /* NetworkManager.swift */; };
@@ -31,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9408E0BE2A6F151C00797AA0 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		941D2A772A4CB463001C374E /* RickAndMorty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMorty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		941D2A7A2A4CB463001C374E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		941D2A7C2A4CB463001C374E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,8 +40,6 @@
 		941D2A862A4CB465001C374E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		941D2A882A4CB465001C374E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		941D2A922A4CB53A001C374E /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
-		941D2A962A4CB649001C374E /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
-		941D2A992A4CBE5C001C374E /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		94668D222A59A9E600093C32 /* CharactersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewController.swift; sourceTree = "<group>"; };
 		94668D252A59B09700093C32 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		94668D272A59B27C00093C32 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
@@ -61,12 +60,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				94668D212A598EEC00093C32 /* SnapKit in Frameworks */,
+				9408E0BC2A6F0E5B00797AA0 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9408E0BD2A6F150600797AA0 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				9408E0BE2A6F151C00797AA0 /* CustomButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
 		941D2A6E2A4CB463001C374E = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +94,7 @@
 		941D2A792A4CB463001C374E /* RickAndMorty */ = {
 			isa = PBXGroup;
 			children = (
+				9408E0BD2A6F150600797AA0 /* Buttons */,
 				948E70A22A608B1D0061FFDA /* Helpers */,
 				94668D242A59B08600093C32 /* NetworkLayer */,
 				941D2A8E2A4CB48F001C374E /* App */,
@@ -142,8 +151,6 @@
 			isa = PBXGroup;
 			children = (
 				941D2A922A4CB53A001C374E /* Character.swift */,
-				941D2A962A4CB649001C374E /* Location.swift */,
-				941D2A992A4CBE5C001C374E /* DataModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -193,6 +200,7 @@
 			name = RickAndMorty;
 			packageProductDependencies = (
 				94668D202A598EEC00093C32 /* SnapKit */,
+				9408E0BB2A6F0E5B00797AA0 /* Alamofire */,
 			);
 			productName = RickAndMorty;
 			productReference = 941D2A772A4CB463001C374E /* RickAndMorty.app */;
@@ -224,6 +232,7 @@
 			mainGroup = 941D2A6E2A4CB463001C374E;
 			packageReferences = (
 				94668D1F2A598EEC00093C32 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				9408E0BA2A6F0E5B00797AA0 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 941D2A782A4CB463001C374E /* Products */;
 			projectDirPath = "";
@@ -259,13 +268,12 @@
 				941D2A7F2A4CB463001C374E /* MainMenuViewController.swift in Sources */,
 				94E735292A5E04B600DD58AA /* CharacterSearchViewController.swift in Sources */,
 				94668D282A59B27C00093C32 /* APIError.swift in Sources */,
-				941D2A9A2A4CBE5C001C374E /* DataModel.swift in Sources */,
 				948E70A82A6099F30061FFDA /* LocationDetailViewController.swift in Sources */,
 				941D2A7B2A4CB463001C374E /* AppDelegate.swift in Sources */,
 				948A73482A5F2C67007F9802 /* LocationsViewController.swift in Sources */,
 				94668D2A2A59B92400093C32 /* CustomTableViewCell.swift in Sources */,
-				941D2A972A4CB649001C374E /* Location.swift in Sources */,
 				941D2A7D2A4CB463001C374E /* SceneDelegate.swift in Sources */,
+				9408E0BF2A6F151C00797AA0 /* CustomButton.swift in Sources */,
 				948E70AA2A609D220061FFDA /* LocationSearchViewController.swift in Sources */,
 				948E70A42A608B370061FFDA /* APIAdresses.swift in Sources */,
 				941D2A932A4CB53A001C374E /* Character.swift in Sources */,
@@ -486,6 +494,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		9408E0BA2A6F0E5B00797AA0 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = exactVersion;
+				version = 5.0.0;
+			};
+		};
 		94668D1F2A598EEC00093C32 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -497,6 +513,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		9408E0BB2A6F0E5B00797AA0 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9408E0BA2A6F0E5B00797AA0 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
 		94668D202A598EEC00093C32 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 94668D1F2A598EEC00093C32 /* XCRemoteSwiftPackageReference "SnapKit" */;
